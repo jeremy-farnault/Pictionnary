@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Pictionary</title>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<link href="Styles/pictionary.css" rel="stylesheet" media="all" type="text/css">
+</head>
+
+<body>
+	<div id="title">
+		<img src="Styles/Images/logo.png"/>
+	</div>
+
+	<div id="navigate">
+		<form>
+  			<input type="button" class="buttonNav" value="Retour" onClick="window.location.href='rooms.html'">
+  			<input type="button" class="buttonNav" value="Profil" onClick="window.location.href='profile.html'">
+  			<input type="button" class="buttonNav" value="Déconnexion" onClick="window.location.href='index.html'">
+  		</form>
+	</div>
+
+	<div id="page">
+		<div id="gameZone">
+			<div id="drawArea">
+				<canvas id="paint"></canvas>
+
+				<div class="colorButtons">
+					<input type="button" class="button" onclick="changeColor('#000000')" value="NOIR"></input>
+					<input type="button" class="button" onclick="changeColor('#DE3163')" value="CERISE"></input>
+					<input type="button" class="button" onclick="changeColor('#FFFF00')" value="JAUNE"></input>
+					<input type="button" class="button" onclick="changeColor('#FF0000')" value="ROUGE"></input>
+					<input type="button" class="button" onclick="changeColor('#00FF00')" value="VERT"></input>
+					<input type="button" class="button" onclick="changeColor('#7F00FF')" value="VIOLET"></input>
+					<input type="button" class="button" onclick="changeColor('#5B3B11')" value="MARRON"></input>
+					<input type="button" class="button" onclick="changeColor('#808080')" value="GRIS"></input>
+					<input type="button" class="button" onclick="changeColor('#FF7F00')" value="ORANGE"></input>
+					<input type="button" class="button" onclick="changeColor('#00561B')" value="VERT IMPERIAL"></input>
+					<input type="button" class="button" onclick="changeColor('#0000FF')" value="BLEU"></input>
+					<input type="button" class="button" onclick="changeColor('#007BA7')" value="CAERULEUM"></input>
+				</div>
+
+				<div>
+					<input type="button" class="button" id="clearSquare" value="Gomme"></input>
+				</div>
+				
+				<div>
+					<input type="button" class="button" id="clearCanvas" value="Tout effacer"></input>
+				</div>
+
+				<select id="sizeSelect" onchange="changeSize()"> 
+					<option value="1">Très fin</option> 
+					<option value="3">Fin</option> 
+					<option value="8">Moyen</option>  
+					<option value="15">Large</option> 
+					<option value="20">Très large</option>
+				</select>
+			</div>
+
+			<div id="gameInfo">
+				<div id="chat">
+
+					<div id="chatBox"></div>
+
+					<form onsubmit="return (sendMessage());">
+						<b>Message : </b><input type="text" name="message" id="message" style="width:250px;" /><input type="submit" value="Envoyer" />
+					</form>
+
+				</div>
+				<div id="count">
+
+					<input type="button" class="button" onclick="gameStarted(); countDown(); this.disabled=true; this.value='Patientez...'" value="Départ" id="buttonCount" disabled></input>
+
+					<div id="countdown">00:00</div>
+
+				</div>
+
+				<div id="scoring">
+					<table border="1" id="tabScore">
+						<caption>Score</caption>
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Score</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="Scripts/pictionary.js"></script>
+
+</body>
+
+</html>

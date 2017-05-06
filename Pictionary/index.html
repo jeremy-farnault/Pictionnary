@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Pictionary</title>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<link href="Styles/index.css" rel="stylesheet" media="all" type="text/css">
+</head>
+
+<body>
+	<div id="title">
+		<img src="Styles/Images/logo.png"/>
+	</div>
+
+	<div class="container">
+
+		<section id="content">
+
+			<form action="">
+
+				<h1>Connexion</h1>
+
+				<div>
+					<input type="text" placeholder="Nom d'utilisateur" required="" id="user" />
+				</div>
+
+				<div>
+					<input type="password" placeholder="Mot de passe" required="" id="pass" />
+				</div>
+
+				<div id="badUser"></div>
+
+				<div>
+					<input type="button" value="Connexion" onclick="checkAndPlay()"/>
+					<a href="register.html">S'enregistrer</a>
+				</div>
+
+			</form>
+
+		</section>
+
+	</div>
+
+	<script type="text/javascript" src="Scripts/index.js"></script>
+
+</body>
+
+</html>
